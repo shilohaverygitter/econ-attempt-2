@@ -1,0 +1,244 @@
+
+const quizData = [
+
+{
+q:"The Bank of Canada increases its benchmark interest rate from 2.5% to 4.5%. Which outcome would most likely help reduce inflation?",
+a:[
+"Businesses increase production because borrowing becomes more affordable.",
+"Consumers reduce spending because borrowing becomes more expensive.",
+"Households increase their use of credit to maintain their purchasing power.",
+"Businesses increase investment because consumers have more disposable income."
+],
+c:1,
+e:"Higher interest rates increase borrowing costs. Consumers and businesses tend to spend and borrow less, reducing demand and helping slow inflation."
+},
+
+{
+q:"A family earns $85,000 annually. Inflation is 6%, but their wages only increase by 2%. What is the most likely result?",
+a:[
+"Their real income increases because their wages increased.",
+"Their purchasing power decreases because prices rose faster than income.",
+"Their purchasing power stays the same because both wages and prices increased.",
+"Their standard of living automatically improves because they earn more money."
+],
+c:1,
+e:"Their income increased by less than the cost of living. Their real purchasing power has decreased."
+},
+
+{
+q:"A construction company is considering borrowing $2 million to build an apartment complex. Interest rates increase significantly. Which decision is the company most likely to consider?",
+a:[
+"Proceed immediately because higher interest rates increase the demand for housing.",
+"Cancel the project because borrowing costs are lower than before.",
+"Delay the project because higher loan payments could make it less profitable.",
+"Increase its borrowing because higher rates make investments less expensive."
+],
+c:2,
+e:"Higher interest rates increase the cost of financing. The company may delay or cancel the project if expected profits no longer justify the cost."
+},
+
+{
+q:"The government notices that CPI has increased significantly over the past year. How could this information influence government decisions?",
+a:[
+"It could use the information to assess the cost of living and adjust certain benefits or policies.",
+"It could conclude that every Canadian household experienced exactly the same price increases.",
+"It could use CPI to determine the total value of all goods produced in Canada.",
+"It could assume that unemployment must have increased at the same rate as inflation."
+],
+c:0,
+e:"CPI helps measure changes in the cost of living. Governments can use this information when making decisions about benefits, pensions and economic policies."
+},
+
+{
+q:"A factory closes in a small Ontario community, resulting in 2,000 job losses. Which sequence best explains how this could affect local businesses?",
+a:[
+"Unemployment increases, consumer spending falls, and local businesses lose revenue.",
+"Unemployment decreases, consumer spending increases, and local businesses expand.",
+"Government revenue increases, household income rises, and local businesses gain customers.",
+"Imports decrease, wages increase, and the community experiences greater economic growth."
+],
+c:0,
+e:"Workers who lose their income generally reduce spending. Local businesses lose customers and may eventually reduce staff or close."
+},
+
+{
+q:"Country A exports $400 billion in goods and imports $350 billion. Country B exports $300 billion and imports $380 billion. Which statement is correct?",
+a:[
+"Both countries have a trade surplus.",
+"Country A has a trade deficit while Country B has a surplus.",
+"Country A has a trade surplus while Country B has a deficit.",
+"Both countries have a trade deficit."
+],
+c:2,
+e:"Country A has a $50 billion surplus (400 - 350). Country B has an $80 billion deficit (300 - 380)."
+},
+
+{
+q:"Country X has a GDP of $2 trillion and a population of 100 million. Country Y has a GDP of $1 trillion and a population of 20 million. Which country has the higher GDP per capita?",
+a:[
+"Country X, because its total GDP is larger.",
+"Country Y, because its GDP per capita is higher.",
+"Both countries have the same GDP per capita.",
+"Neither country, because population does not affect GDP per capita."
+],
+c:1,
+e:"Country X: $2 trillion / 100 million = $20,000 per person. Country Y: $1 trillion / 20 million = $50,000 per person."
+},
+
+{
+q:"A country has a high GDP per capita, but most of its wealth belongs to a small percentage of the population. What does this suggest?",
+a:[
+"Everyone in the country has a high standard of living.",
+"The country must have a trade surplus.",
+"Average economic output per person does not show how equally wealth is distributed.",
+"The country must have low inflation."
+],
+c:2,
+e:"GDP per capita is an average. It does not show how wealth is distributed, so income inequality must also be considered."
+},
+
+{
+q:"International conflict causes oil prices to increase from $75 to $115 per barrel. Which Canadian industry is most likely to benefit directly?",
+a:[
+"Airlines, because their fuel expenses decrease.",
+"Oil producers, because they may receive more revenue for their exports.",
+"Transportation companies, because shipping becomes cheaper.",
+"Manufacturers, because energy costs automatically decrease."
+],
+c:1,
+e:"Canadian oil producers may earn more revenue from selling oil at higher prices, assuming production and sales volumes remain similar."
+},
+
+{
+q:"Why might rising oil prices increase the cost of living in Canada, even for people who do not own vehicles?",
+a:[
+"Oil prices only affect the cost of gasoline, not other products.",
+"Businesses may face higher transportation and production costs and pass these costs on to consumers.",
+"The Bank of Canada automatically increases all household expenses.",
+"Oil prices reduce the cost of importing consumer products."
+],
+c:1,
+e:"Oil is used in transportation and production. Higher energy costs can increase the prices of groceries, deliveries and other goods."
+},
+
+{
+q:"If Canada's oil exports become more valuable because of higher global oil prices, what could happen to Canada's balance of trade?",
+a:[
+"It could improve because Canada earns more from exports.",
+"It must become a deficit because oil prices increased.",
+"It could worsen because exports are not included in trade calculations.",
+"It will remain exactly the same regardless of export values."
+],
+c:0,
+e:"If export volumes remain similar, higher oil prices increase the value of exports and can improve the trade balance."
+},
+
+{
+q:"The Canadian dollar increases in value compared with the US dollar. Which outcome is most likely?",
+a:[
+"Canadian consumers generally find imported American products more expensive.",
+"Canadian businesses find American goods cheaper to purchase.",
+"Canadian exports automatically become cheaper for American buyers.",
+"Canada's currency has depreciated."
+],
+c:1,
+e:"An appreciating Canadian dollar has greater purchasing power compared with the US dollar, making imports from the US relatively cheaper. Canadian exports may become more expensive for American buyers."
+},
+
+{
+q:"Canada is experiencing 7% inflation, 8% unemployment and declining GDP. Why could another interest rate increase create additional economic problems?",
+a:[
+"It could encourage consumer borrowing and increase economic demand.",
+"It could reduce borrowing and investment, potentially increasing unemployment further.",
+"It would immediately eliminate inflation without affecting employment.",
+"It would guarantee that businesses increase production."
+],
+c:1,
+e:"Higher interest rates can reduce consumer spending and business investment. This may worsen unemployment and slow economic growth."
+},
+
+{
+q:"The Bank of Canada lowers interest rates while unemployment is rising and GDP is declining. What is the main goal of this decision?",
+a:[
+"To discourage borrowing and reduce economic activity.",
+"To make imports more expensive by reducing the supply of goods.",
+"To encourage borrowing, spending and investment to stimulate economic growth.",
+"To guarantee that inflation immediately falls to zero."
+],
+c:2,
+e:"Lower interest rates make borrowing less expensive. This can encourage spending and investment, helping support economic growth."
+},
+
+{
+q:"A student argues that Canada should always increase interest rates whenever inflation rises. Why is this argument incomplete?",
+a:[
+"Interest rates only affect businesses, not households.",
+"Higher interest rates can help control inflation but may also slow economic growth and increase unemployment.",
+"Interest rates have no relationship with consumer spending.",
+"The Bank of Canada cannot influence borrowing costs."
+],
+c:1,
+e:"Economic decisions involve trade-offs. Higher rates can reduce inflation but can also decrease spending, investment and employment."
+},
+
+{
+q:"Which situation is the clearest example of a decrease in purchasing power?",
+a:[
+"A person's salary increases by 7% while prices increase by 3%.",
+"A person's salary stays the same while the prices of necessities increase by 8%.",
+"A person's salary and the average price level both increase by 4%.",
+"A person's salary increases by 5% while prices remain unchanged."
+],
+c:1,
+e:"If income stays the same while prices increase, the person can afford fewer goods and services."
+},
+
+{
+q:"Which combination would most likely put upward pressure on the value of the Canadian dollar?",
+a:[
+"Lower interest rates, high inflation and declining economic growth.",
+"Higher interest rates, low inflation and strong economic performance.",
+"High unemployment, declining exports and weak investment.",
+"Lower demand for Canadian exports and weaker investor confidence."
+],
+c:1,
+e:"Higher interest rates can attract foreign investment, low inflation supports purchasing power, and strong economic performance can increase investor confidence."
+},
+
+{
+q:"A country experiences a decrease in exports while imports remain unchanged. What is the most likely immediate effect on its balance of trade?",
+a:[
+"The trade balance improves because imports remain stable.",
+"The trade surplus or trade position becomes less favourable.",
+"The country automatically moves into a trade surplus.",
+"The country's GDP per capita immediately increases."
+],
+c:1,
+e:"If exports fall while imports stay the same, the difference between exports and imports becomes less favourable."
+},
+
+{
+q:"Which of the following best explains why a country can have a growing GDP but still experience a declining standard of living for some citizens?",
+a:[
+"GDP measures total economic production but does not show how equally income is distributed.",
+"GDP measures only the number of people employed.",
+"A growing GDP always means that inflation has disappeared.",
+"GDP directly measures the affordability of housing for every citizen."
+],
+c:0,
+e:"Economic growth does not guarantee that all citizens benefit equally. Income inequality and the cost of living also matter."
+},
+
+{
+q:"The Canadian dollar depreciates compared with the US dollar. What is a likely effect on Canadian businesses importing American products?",
+a:[
+"Imports become cheaper because the Canadian dollar is worth less.",
+"Imports become more expensive because more Canadian dollars are needed to purchase the same amount of US currency.",
+"Imports become free because the exchange rate changes.",
+"Canadian businesses automatically increase their purchasing power."
+],
+c:1,
+e:"When the Canadian dollar depreciates, it buys fewer US dollars. American products therefore cost more in Canadian dollars."
+}
+
+];
