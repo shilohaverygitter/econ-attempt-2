@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economics Study Guide</title>
+
+<style>
+:root {
+  --navy: #172b4d;
+  --blue: #315b91;
+  --light: #edf3fa;
+  --background: #f5f7fb;
+  --text: #263449;
+  --muted: #66758a;
+  --green: #24764b;
+  --red: #b83c43;
+  --border: #dce3ed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #172b4d, #315b91);
+  color: white;
+  padding: 48px 20px 38px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 36px;
+  margin: 0 0 8px;
+}
+
+header p {
+  margin: 0;
+  color: #dce8f7;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 28px auto;
+  padding: 0 18px 50px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--navy);
+  padding: 12px 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tab:hover {
+  background: var(--light);
+}
+
+.tab.active {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.section-heading {
+  margin: 0 0 6px;
+  color: var(--navy);
+  font-size: 27px;
+}
+
+.intro {
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.topic, .term-card, .question-card, .short-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 7px rgba(20, 40, 70, 0.04);
+}
+
+.topic h3, .short-card h3 {
+  color: var(--blue);
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.topic p {
+  margin: 8px 0;
+}
+
+.topic ul {
+  padding-left: 22px;
+  margin: 8px 0;
+}
+
+.key {
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.example {
+  background: var(--light);
+  border-left: 4px solid var(--blue);
+  padding: 12px 15px;
+  border-radius: 5px;
+  margin-top: 12px;
+}
+
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.term-card {
+  margin: 0;
+  padding: 16px;
+}
+
+.term-card h3 {
+  margin: 0 0 5px;
+  color: var(--blue);
+  font-size: 16px;
+}
+
+.term-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.question-card {
+  padding: 22px;
+}
+
+.question-number {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.question-text {
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.option {
+  display: block;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.option:hover {
+  background: var(--light);
+}
+
+.option input {
+  margin-right: 9px;
+}
+
+.option.correct {
+  border-color: var(--green);
+  background: #e8f5ed;
+}
+
+.option.incorrect {
+  border-color: var(--red);
+  background: #fbecee;
+}
+
+.feedback {
+  display: none;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.feedback.show {
+  display: block;
+}
+
+.feedback.right {
+  background: #e8f5ed;
+  color: #175d39;
+}
+
+.feedback.wrong {
+  background: #fbecee;
+  color: #922d35;
+}
+
+button.action {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 12px 19px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 6px 8px 0;
+}
+
+button.action:hover {
+  background: var(--navy);
+}
+
+button.secondary {
+  background: #e6ebf2;
+  color: var(--navy);
+}
+
+.score-box {
+  background: var(--navy);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.score-box strong {
+  font-size: 25px;
+}
+
+.progress-track {
+  background: #dce3ed;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress-fill {
+  background: #4c9b75;
+  height: 100%;
+  width: 0%;
+  transition: width 0.2s;
+}
+
+.answer {
+  display: none;
+  background: var(--light);
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.answer.show {
+  display: block;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 25px;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  .tab {
+    flex: 1 1 40%;
+  }
+
+  .topic, .question-card, .short-card {
+    padding: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Economics Study Guide</h1>
+  <p>Review the concepts, test your knowledge, and get ready for your economics test.</p>
+</header>
+
+<div class="container">
+
+  <nav class="tabs">
+    <button class="tab active" data-panel="guide">Study Guide</button>
+    <button class="tab" data-panel="terms">Key Terms</button>
+    <button class="tab" data-panel="quiz">Practice Quiz</button>
+    <button class="tab" data-panel="short">Short Answer</button>
+  </nav>
+
+  <!-- STUDY GUIDE -->
+
+  <section id="guide" class="panel active">
+    <h2 class="section-heading">Study Guide</h2>
+    <p class="intro">Review each topic and make sure you understand how the concepts apply to real economic situations.</p>
+
+    <article class="topic">
+      <h3>1. Bank of Canada and Interest Rates</h3>
+      <p>The <span class="key">Bank of Canada</span> is Canada's central bank. One of its main responsibilities is keeping inflation low and stable, with a target of 2% inflation.</p>
+      <p>It uses its policy interest rate to influence borrowing, saving, and spending throughout the economy.</p>
+      <ul>
+        <li><span class="key">When interest rates increase:</span> Borrowing becomes more expensive, people and businesses may spend less, and inflation can slow down.</li>
+        <li><span class="key">When interest rates decrease:</span> Borrowing becomes cheaper, encouraging spending and investment. This can help economic growth.</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> If the Bank of Canada raises interest rates, a family might delay buying a house because mortgage payments would be higher.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>2. Cost of Living and Purchasing Power</h3>
+      <p>The <span class="key">cost of living</span> is the amount of money needed to afford everyday expenses such as housing, food, transportation, and utilities.</p>
+      <p><span class="key">Purchasing power</span> is how much goods and services someone can buy with their money.</p>
+      <ul>
+        <li>If prices rise faster than income, purchasing power decreases.</li>
+        <li>If income rises faster than prices, purchasing power increases.</li>
+        <li>Inflation makes the same amount of money buy fewer goods and services over time.</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> If someone's pay increases by 2% but prices increase by 5%, they have less purchasing power even though they earn more money.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>3. Businesses and Borrowing</h3>
+      <p>Businesses often borrow money to expand, purchase equipment, hire employees, or build new facilities.</p>
+      <p>Interest rates affect how expensive it is for a business to borrow money.</p>
+      <ul>
+        <li>Higher interest rates increase the cost of loans.</li>
+        <li>Businesses may delay or cancel projects if borrowing becomes too expensive.</li>
+        <li>Lower interest rates can encourage investment and expansion.</li>
+      </ul>
+      <p><span class="key">Economic consequences:</span> If businesses reduce investment, there may be fewer jobs created, less construction, and slower economic growth.</p>
+      <div class="example">
+        <strong>Example:</strong> A construction company may decide not to build an apartment complex if higher loan payments make the project unprofitable.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>4. Consumer Price Index (CPI)</h3>
+      <p>The <span class="key">Consumer Price Index (CPI)</span> measures changes in the average price of a basket of goods and services commonly purchased by Canadian households.</p>
+      <ul>
+        <li>CPI is used to measure inflation.</li>
+        <li>If CPI increases, the average price level has increased.</li>
+        <li>If CPI decreases, the average price level has decreased.</li>
+        <li>A lower inflation rate does not necessarily mean prices are going down. It means prices are increasing more slowly.</li>
+      </ul>
+      <p><span class="key">Inflation rate:</span> The percentage change in the general price level over a period of time.</p>
+      <div class="example">
+        <strong>Example:</strong> If CPI rises from 150 to 153, the price level has increased by 2%.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>5. Factory Closures and Unemployment</h3>
+      <p>When a factory closes, the workers who lose their jobs may contribute to an increase in unemployment.</p>
+      <ul>
+        <li><span class="key">Unemployment:</span> People who are able and willing to work, are looking for work, but do not have a job.</li>
+        <li>Families may have less income and reduce their spending.</li>
+        <li>Local businesses may lose customers.</li>
+        <li>Government spending on employment support may increase, while tax revenue may decrease.</li>
+      </ul>
+      <p>Factory closures can also affect suppliers and other businesses connected to the factory.</p>
+      <div class="example">
+        <strong>Example:</strong> If a major factory closes in a small town, restaurants and stores may also lose business because fewer workers have income to spend.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>6. Trade Surplus and Trade Deficit</h3>
+      <p>International trade involves countries buying and selling goods and services with each other.</p>
+      <ul>
+        <li><span class="key">Exports:</span> Goods and services sold to other countries.</li>
+        <li><span class="key">Imports:</span> Goods and services purchased from other countries.</li>
+        <li><span class="key">Trade surplus:</span> The value of exports is greater than the value of imports.</li>
+        <li><span class="key">Trade deficit:</span> The value of imports is greater than the value of exports.</li>
+      </ul>
+      <p>A trade surplus can support domestic production and employment. A trade deficit means a country is buying more from other countries than it is selling to them.</p>
+      <p>A trade deficit is not automatically bad. It can reflect strong domestic demand or access to products and resources that are not produced locally.</p>
+      <div class="example">
+        <strong>Example:</strong> If Canada exports $80 billion worth of goods and imports $65 billion, it has a $15 billion trade surplus.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>7. GDP and Standard of Living</h3>
+      <p><span class="key">Gross Domestic Product (GDP)</span> is the total market value of all final goods and services produced within a country during a specific period.</p>
+      <ul>
+        <li>GDP growth usually means the economy is producing more goods and services.</li>
+        <li>GDP can increase when consumer spending, business investment, government spending, or exports increase.</li>
+        <li>GDP per capita is GDP divided by the population.</li>
+      </ul>
+      <p><span class="key">Standard of living</span> refers to the material well-being of people, including their access to goods, services, income, and necessities.</p>
+      <p>GDP is useful, but it does not measure everything. It does not directly show income inequality, happiness, environmental quality, or how wealth is distributed.</p>
+      <div class="example">
+        <strong>Example:</strong> A country can have a high GDP, but if most of its wealth goes to a small percentage of the population, many people may still have a low standard of living.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>8. Oil Prices and the Canadian Economy</h3>
+      <p>Oil is an important Canadian export, especially for provinces such as Alberta, Saskatchewan, and Newfoundland and Labrador.</p>
+      <p>Oil prices are affected by supply and demand.</p>
+      <ul>
+        <li><span class="key">Higher oil prices:</span> Can increase revenue for oil producers, support jobs, and increase government royalties and tax revenue.</li>
+        <li><span class="key">Lower oil prices:</span> Can reduce profits, lead to job losses, and decrease investment in the energy sector.</li>
+        <li>Higher oil prices can also increase transportation and production costs for businesses and raise costs for consumers.</li>
+      </ul>
+      <p>Oil prices can also affect the Canadian dollar because oil is a major Canadian export.</p>
+      <div class="example">
+        <strong>Example:</strong> If global oil demand increases, Canadian oil producers may earn more money. However, consumers may also pay more for gasoline and goods that require transportation.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>9. Inflation, Unemployment, and GDP Together</h3>
+      <p>These are three important indicators used to understand the health of an economy.</p>
+      <ul>
+        <li><span class="key">Inflation:</span> Measures how quickly the general price level is increasing.</li>
+        <li><span class="key">Unemployment:</span> Measures the percentage of the labour force that is unemployed and looking for work.</li>
+        <li><span class="key">GDP:</span> Measures the value of goods and services produced in the economy.</li>
+      </ul>
+      <p>These indicators can influence each other.</p>
+      <ul>
+        <li>Rapid economic growth can increase demand and sometimes contribute to inflation.</li>
+        <li>Slow economic growth can lead businesses to reduce hiring or lay off workers.</li>
+        <li>High inflation can reduce purchasing power and make everyday life more expensive.</li>
+      </ul>
+      <p><span class="key">Recession:</span> A significant decline in economic activity that lasts for an extended period. It often involves falling GDP and rising unemployment.</p>
+      <div class="example">
+        <strong>Example:</strong> If Canada's GDP falls and unemployment rises, it could indicate that the economy is weakening. The Bank of Canada may consider lowering interest rates to encourage spending and investment, depending on inflation conditions.
+      </div>
+    </article>
+
+    <article class="topic">
+      <h3>10. Currency Values and Exchange Rates</h3>
+      <p>An <span class="key">exchange rate</span> is the value of one country's currency compared with another country's currency.</p>
+      <p>A currency can appreciate or depreciate.</p>
+      <ul>
+        <li><span class="key">Appreciation:</span> A currency increases in value compared with another currency.</li>
+        <li><span class="key">Depreciation:</span> A currency decreases in value compared with another currency.</li>
+      </ul>
+      <p>Factors that influence currency values include:</p>
+      <ul>
+        <li>Interest rates and investment opportunities.</li>
+        <li>Supply and demand for a country's currency.</li>
+        <li>Economic growth and confidence in the economy.</li>
+        <li>Political stability and global events.</li>
+        <li>Commodity prices, especially oil for Canada.</li>
+      </ul>
+      <p><span class="key">Effects of a stronger Canadian dollar:</span> Imports become cheaper for Canadians, but Canadian exports become more expensive for foreign buyers.</p>
+      <p><span class="key">Effects of a weaker Canadian dollar:</span> Imports become more expensive, but Canadian exports may become cheaper for foreign buyers.</p>
+      <div class="example">
+        <strong>Example:</strong> If the Canadian dollar depreciates against the US dollar, Canadians generally need more Canadian dollars to purchase the same US product.
+      </div>
+    </article>
+  </section>
+
+  <!-- KEY TERMS -->
+
+  <section id="terms" class="panel">
+    <h2 class="section-heading">Key Terms</h2>
+    <p class="intro">Make sure you can explain these terms in your own words.</p>
+
+    <div class="term-grid" id="termGrid"></div>
+  </section>
+
+  <!-- QUIZ -->
+
+  <section id="quiz" class="panel">
+    <h2 class="section-heading">Practice Quiz</h2>
+    <p class="intro">20 application-based multiple-choice questions. Choose the best answer for each situation.</p>
+
+    <div class="score-box">
+      <div>
+        <div>Current Score</div>
+        <strong id="score">0 / 20</strong>
+      </div>
+      <div>
+        <div>Questions Answered</div>
+        <strong id="answered">0 / 20</strong>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <div id="quizQuestions"></div>
+
+    <button class="action" onclick="showResults()">Finish Quiz</button>
+    <button class="action secondary" onclick="resetQuiz()">Try Again</button>
+    <div id="finalResult"></div>
+  </section>
+
+  <!-- SHORT ANSWER -->
+
+  <section id="short" class="panel">
+    <h2 class="section-heading">Short Answer Practice</h2>
+    <p class="intro">Try answering each question before revealing the suggested answer.</p>
+
+    <div id="shortQuestions"></div>
+  </section>
+
+</div>
+
+<footer>
+  Economics Study Guide | Review • Practise • Improve
+</footer>
+
+<script>
+
+// TAB NAVIGATION
+
+document.querySelectorAll(".tab").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
+
+    button.classList.add("active");
+    document.getElementById(button.dataset.panel).classList.add("active");
+  });
+});
+
+
+// KEY TERMS
+
+const terms = [
+  ["Inflation", "A general increase in the prices of goods and services over time."],
+  ["Interest Rate", "The cost of borrowing money, usually expressed as a percentage."],
+  ["Bank of Canada", "Canada's central bank, responsible for monetary policy and supporting price stability."],
+  ["CPI", "The Consumer Price Index measures changes in the average price of a basket of goods and services."],
+  ["Purchasing Power", "The amount of goods and services that money can buy."],
+  ["Cost of Living", "The amount of money needed to afford basic expenses."],
+  ["GDP", "The total value of final goods and services produced within a country during a period."],
+  ["GDP per Capita", "GDP divided by the population; an average measure of economic output per person."],
+  ["Unemployment", "The situation where people who are able and willing to work are looking for a job but cannot find one."],
+  ["Recession", "A significant decline in economic activity over an extended period."],
+  ["Exports", "Goods and services sold to other countries."],
+  ["Imports", "Goods and services purchased from other countries."],
+  ["Trade Surplus", "When the value of exports is greater than the value of imports."],
+  ["Trade Deficit", "When the value of imports is greater than the value of exports."],
+  ["Appreciation", "An increase in the value of a currency compared with another currency."],
+  ["Depreciation", "A decrease in the value of a currency compared with another currency."],
+  ["Monetary Policy", "Actions taken by a central bank to influence interest rates and economic conditions."],
+  ["Standard of Living", "The material well-being of people, including their access to income, goods, and services."],
+  ["Investment", "Spending on capital goods or projects that help businesses produce more in the future."],
+  ["Aggregate Demand", "The total demand for goods and services in an economy at different price levels."]
+];
+
+document.getElementById("termGrid").innerHTML = terms.map(term => `
+  <div class="term-card">
+    <h3>${term[0]}</h3>
+    <p>${term[1]}</p>
+  </div>
+`).join("");
+
+
+// MULTIPLE CHOICE QUESTIONS
+// Each question has four choices, one correct answer, and an explanation.
+
+const quizData = [
+  {
+    q: "The Bank of Canada increases its policy interest rate. A few months later, consumer spending begins to slow. Which explanation best describes this result?",
+    a: [
+      "Higher rates make saving less attractive, so households spend more.",
+      "Higher rates increase borrowing costs, causing some households to reduce purchases.",
+      "Higher rates immediately increase the supply of goods available in stores.",
+      "Higher rates reduce the value of all Canadian debt."
+    ],
+    c: 1,
+    e: "Higher interest rates make loans and mortgages more expensive. Households may cut back on spending, which can reduce demand and help slow inflation."
+  },
+  {
+    q: "A worker receives a 3% pay increase, while the cost of the goods and services they regularly buy rises by 6%. What happens to their purchasing power?",
+    a: [
+      "It increases because their income is higher.",
+      "It stays the same because both income and prices increased.",
+      "It decreases because prices increased faster than income.",
+      "It increases because inflation only affects businesses."
+    ],
+    c: 2,
+    e: "The worker's income increased by less than the prices they face. Their pay buys fewer goods and services than before."
+  },
+  {
+    q: "A construction company is considering borrowing $2 million to build apartments. Interest rates rise significantly. Which response is most economically reasonable?",
+    a: [
+      "Proceed immediately because higher rates guarantee higher rental income.",
+      "Delay or reconsider the project because financing costs have increased.",
+      "Cancel the project because interest rates directly reduce the population.",
+      "Proceed because interest rates only affect personal loans."
+    ],
+    c: 1,
+    e: "Higher interest rates increase the cost of financing. The company must decide whether the expected returns are still enough to justify the project."
+  },
+  {
+    q: "CPI rises from 160 to 164 over one year. Which statement is the most accurate?",
+    a: [
+      "The average price level has increased by 4%.",
+      "The average price level has decreased by 4%.",
+      "Every product in Canada increased in price by exactly 4%.",
+      "The inflation rate is now 164%."
+    ],
+    c: 0,
+    e: "The percentage change is (164 - 160) / 160 × 100 = 2.5%. The increase is 4 index points, not 4 percent. This is a reminder to distinguish index points from percentage change."
+  },
+  {
+    q: "A large factory closes in a town where it was one of the main employers. Which outcome is most likely to happen next?",
+    a: [
+      "Local spending may decrease as unemployed workers have less income.",
+      "The town's exports will automatically increase.",
+      "The unemployment rate must fall because the factory is no longer operating.",
+      "The cost of living will immediately decrease."
+    ],
+    c: 0,
+    e: "Workers who lose their jobs may reduce spending. This can affect local stores and services, creating additional economic pressure."
+  },
+  {
+    q: "Country A exports $90 billion in goods and imports $105 billion. Which conclusion is correct?",
+    a: [
+      "Country A has a $15 billion trade surplus.",
+      "Country A has a $15 billion trade deficit.",
+      "Country A has balanced trade.",
+      "Country A's GDP must be negative."
+    ],
+    c: 1,
+    e: "Imports are $15 billion greater than exports, so the country has a trade deficit."
+  },
+  {
+    q: "A country's GDP increases, but most of the additional income goes to a small group of wealthy households. What does this suggest about GDP as a measure?",
+    a: [
+      "GDP directly measures how equally income is distributed.",
+      "GDP growth guarantees that every household is better off.",
+      "GDP alone cannot show how economic gains are distributed.",
+      "GDP becomes inaccurate whenever income inequality exists."
+    ],
+    c: 2,
+    e: "GDP measures production, not how evenly income is shared. Other indicators are needed to understand inequality and overall well-being."
+  },
+  {
+    q: "Global oil prices rise sharply. Which combination of effects is most likely for Canada?",
+    a: [
+      "Oil producers may earn more, while transportation costs may rise.",
+      "All Canadian businesses benefit equally from higher oil prices.",
+      "Canadian oil exports become less valuable.",
+      "The price of gasoline must decrease."
+    ],
+    c: 0,
+    e: "Higher oil prices can benefit producers and oil-exporting regions, but they can also increase fuel and transportation costs for households and businesses."
+  },
+  {
+    q: "Canada experiences falling GDP and rising unemployment. Inflation is also low. Which policy response might the Bank of Canada consider?",
+    a: [
+      "Increasing interest rates to discourage all borrowing.",
+      "Reducing interest rates to encourage spending and investment.",
+      "Increasing import taxes to directly raise GDP.",
+      "Increasing interest rates because unemployment is always caused by inflation."
+    ],
+    c: 1,
+    e: "When economic activity is weak and inflation is low, lower interest rates may encourage borrowing, spending, and investment."
+  },
+  {
+    q: "The Canadian dollar appreciates against the US dollar. Which effect is most likely?",
+    a: [
+      "Canadian consumers generally find US imports cheaper.",
+      "Canadian exports automatically become cheaper for US buyers.",
+      "Canadian businesses must stop importing products.",
+      "The Canadian dollar loses value."
+    ],
+    c: 0,
+    e: "A stronger Canadian dollar buys more US currency. This makes US products relatively cheaper for Canadian buyers, although Canadian exports become more expensive for US customers."
+  },
+  {
+    q: "Inflation falls from 6% to 3%. Which statement correctly explains what has happened?",
+    a: [
+      "Prices have returned to their previous levels.",
+      "Prices are still rising, but at a slower rate.",
+      "The economy is experiencing deflation.",
+      "The CPI must have decreased by 3%."
+    ],
+    c: 1,
+    e: "A lower inflation rate means prices are increasing more slowly. It does not mean the overall price level has fallen."
+  },
+  {
+    q: "A Canadian company purchases new machinery after borrowing money at a lower interest rate. How could this affect the economy?",
+    a: [
+      "It could increase business investment and productive capacity.",
+      "It must reduce Canada's exports.",
+      "It will automatically lower the CPI.",
+      "It reduces GDP because machinery is not part of investment."
+    ],
+    c: 0,
+    e: "Investment in machinery can help businesses produce more efficiently and increase future productive capacity."
+  },
+  {
+    q: "A Canadian retailer imports most of its products from the United States. The Canadian dollar depreciates. What is the most likely challenge for the retailer?",
+    a: [
+      "Its imported products may cost more in Canadian dollars.",
+      "Its suppliers will automatically lower their prices.",
+      "Its imports will become free of exchange-rate risk.",
+      "The Canadian dollar will appreciate immediately."
+    ],
+    c: 0,
+    e: "A weaker Canadian dollar means the retailer needs more Canadian dollars to purchase the same amount of US currency."
+  },
+  {
+    q: "A country has a high GDP per capita but also has significant income inequality. Which conclusion is most reasonable?",
+    a: [
+      "Every person must have a high income.",
+      "GDP per capita is an average and may hide differences between households.",
+      "The country cannot have a high standard of living.",
+      "Income inequality has no connection to living conditions."
+    ],
+    c: 1,
+    e: "GDP per capita divides total output by population. It does not show how income is distributed among individuals."
+  },
+  {
+    q: "A factory closure causes unemployment to rise. Local restaurants then experience fewer customers. What economic concept does this best demonstrate?",
+    a: [
+      "The multiplier effect, where an initial change creates further effects in the economy.",
+      "Currency appreciation.",
+      "A trade surplus.",
+      "A decrease in the CPI caused by exports."
+    ],
+    c: 0,
+    e: "The loss of factory jobs reduces spending, which can hurt other businesses and lead to further economic effects."
+  },
+  {
+    q: "A country imports more consumer products than it exports. At the same time, businesses are investing heavily in new factories and equipment. Which statement is correct?",
+    a: [
+      "The country must be in a recession.",
+      "The trade deficit means total investment must be zero.",
+      "A trade deficit can exist alongside strong business investment.",
+      "Imports are excluded from all measures of GDP."
+    ],
+    c: 2,
+    e: "A trade deficit describes the difference between exports and imports. It does not automatically mean investment or economic growth is weak."
+  },
+  {
+    q: "The Bank of Canada wants to reduce high inflation. Which action is most consistent with this goal?",
+    a: [
+      "Lower interest rates to encourage more borrowing.",
+      "Raise interest rates to reduce borrowing and spending.",
+      "Increase government exports.",
+      "Guarantee higher wages for every worker."
+    ],
+    c: 1,
+    e: "Higher interest rates can reduce borrowing and spending, easing demand pressures that contribute to inflation."
+  },
+  {
+    q: "Oil prices fall significantly. A Canadian province relies heavily on oil production for employment and government revenue. What is a likely concern?",
+    a: [
+      "Lower revenue could lead to reduced investment and job losses.",
+      "All other industries must close.",
+      "The province's currency automatically becomes stronger.",
+      "The cost of every product in the province must fall."
+    ],
+    c: 0,
+    e: "Lower oil prices can reduce producer profits, investment, employment, and government revenue in regions that rely heavily on the energy sector."
+  },
+  {
+    q: "A country's GDP grows by 1%, but its population grows by 3%. What may happen to GDP per capita?",
+    a: [
+      "It may decrease because population growth is faster than GDP growth.",
+      "It must increase because GDP is positive.",
+      "It stays exactly the same in every situation.",
+      "It becomes equal to the unemployment rate."
+    ],
+    c: 0,
+    e: "GDP per capita is GDP divided by population. If population grows faster than total GDP, average GDP per person can fall."
+  },
+  {
+    q: "The Canadian dollar depreciates, and Canadian tourism businesses receive more visitors from the United States. What is the best explanation?",
+    a: [
+      "Canada may become a less expensive destination for US visitors.",
+      "The Canadian dollar has become more valuable.",
+      "US visitors must pay less in US dollars for Canadian products because Canada raised interest rates.",
+      "Depreciation prevents international travel."
+    ],
+    c: 0,
+    e: "When the Canadian dollar is weaker, US visitors can often get more Canadian dollars for each US dollar, making Canadian travel relatively less expensive."
+  }
+];
+
+let selectedAnswers = {};
+let submitted = false;
+
+function renderQuiz() {
+  const container = document.getElementById("quizQuestions");
+
+  container.innerHTML = quizData.map((item, index) => `
+    <div class="question-card" id="question-${index}">
+      <div class="question-number">QUESTION ${index + 1} OF ${quizData.length}</div>
+      <div class="question-text">${item.q}</div>
+
+      ${item.a.map((option, choice) => `
+        <label class="option" id="option-${index}-${choice}">
+          <input
+            type="radio"
+            name="question-${index}"
+            value="${choice}"
+            onchange="selectAnswer(${index}, ${choice})"
+          >
+          ${String.fromCharCode(65 + choice)}. ${option}
+        </label>
+      `).join("")}
+
+      <div class="feedback" id="feedback-${index}"></div>
+    </div>
+  `).join("");
+
+  updateScore();
+}
+
+function selectAnswer(question, choice) {
+  if (submitted) return;
+
+  selectedAnswers[question] = choice;
+  updateScore();
+}
+
+function updateScore() {
+  let answeredCount = Object.keys(selectedAnswers).length;
+  let correctCount = 0;
+
+  for (let index in selectedAnswers) {
+    if (selectedAnswers[index] === quizData[index].c) {
+      correctCount++;
+    }
+  }
+
+  document.getElementById("score").textContent =
+    correctCount + " / " + quizData.length;
+
+  document.getElementById("answered").textContent =
+    answeredCount + " / " + quizData.length;
+
+  document.getElementById("progress").style.width =
+    (answeredCount / quizData.length * 100) + "%";
+}
+
+function showResults() {
+  if (submitted) return;
+
+  submitted = true;
+  let correctCount = 0;
+
+  quizData.forEach((item, index) => {
+    const feedback = document.getElementById("feedback-" + index);
+    const selected = selectedAnswers[index];
+
+    if (selected === item.c) {
+      correctCount++;
+      feedback.className = "feedback show right";
+      feedback.innerHTML = "<strong>Correct!</strong> " + item.e;
+    } else if (selected === undefined) {
+      feedback.className = "feedback show wrong";
+      feedback.innerHTML = "<strong>Not answered.</strong> Correct answer: " +
+        String.fromCharCode(65 + item.c) + ". " + item.a[item.c] +
+        "<br>" + item.e;
+    } else {
+      feedback.className = "feedback show wrong";
+      feedback.innerHTML = "<strong>Incorrect.</strong> Correct answer: " +
+        String.fromCharCode(65 + item.c) + ". " + item.a[item.c] +
+        "<br>" + item.e;
+    }
+
+    item.a.forEach((option, choice) => {
+      const label = document.getElementById(`option-${index}-${choice}`);
+
+      if (choice === item.c) {
+        label.classList.add("correct");
+      } else if (choice === selected) {
+        label.classList.add("incorrect");
+      }
+    });
+  });
+
+  const percentage = Math.round(correctCount / quizData.length * 100);
+
+  let message = "";
+  if (percentage >= 90) {
+    message = "Excellent work! You have a strong understanding of these topics.";
+  } else if (percentage >= 75) {
+    message = "Good job! Review the questions you missed to strengthen your understanding.";
+  } else if (percentage >= 60) {
+    message = "You're getting there. Spend some more time reviewing the study guide.";
+  } else {
+    message = "Keep practising. Go back through the study guide and try again.";
+  }
+
+  document.getElementById("finalResult").innerHTML = `
+    <div class="topic">
+      <h3>Your Final Result: ${correctCount} / ${quizData.length} (${percentage}%)</h3>
+      <p>${message}</p>
+    </div>
+  `;
+
+  updateScore();
+}
+
+function resetQuiz() {
+  selectedAnswers = {};
+  submitted = false;
+  document.getElementById("finalResult").innerHTML = "";
+  renderQuiz();
+}
+
+
+// SHORT ANSWER PRACTICE
+
+const shortQuestions = [
+  {
+    q: "Explain how an increase in interest rates can affect both households and businesses.",
+    a: "Higher interest rates make borrowing more expensive. Households may reduce spending on large purchases, while businesses may delay investments or expansion because loans cost more. This can slow economic growth and help reduce inflation."
+  },
+  {
+    q: "A Canadian company's wages increase by 2%, but inflation is 5%. Explain what happens to its employees' purchasing power.",
+    a: "Their purchasing power decreases because their wages are not increasing as quickly as prices. Even though employees earn more money, they can afford fewer goods and services than before."
+  },
+  {
+    q: "Explain two possible economic consequences of a major factory closing in a Canadian community.",
+    a: "First, unemployment may increase as workers lose their jobs. Second, local businesses may experience lower sales because unemployed workers have less money to spend. Government tax revenue may also decrease."
+  },
+  {
+    q: "What is the difference between a trade surplus and a trade deficit? Include an example.",
+    a: "A trade surplus occurs when exports are greater than imports. A trade deficit occurs when imports are greater than exports. For example, if Canada exports $100 billion and imports $80 billion, it has a $20 billion trade surplus."
+  },
+  {
+    q: "Explain why GDP per capita does not always accurately represent a country's standard of living.",
+    a: "GDP per capita is an average, so it does not show how income is distributed. A country could have a high GDP per capita while many people still experience poverty or limited access to services."
+  },
+  {
+    q: "Explain one positive and one negative effect of rising oil prices on the Canadian economy.",
+    a: "A positive effect is that Canadian oil producers may earn more revenue, supporting jobs and investment. A negative effect is that fuel and transportation costs can increase, making life more expensive for households and raising costs for businesses."
+  },
+  {
+    q: "CPI increases from 150 to 156. Calculate the percentage increase and explain what it means.",
+    a: "Percentage increase = (156 - 150) / 150 × 100 = 4%. This means the average price level measured by the CPI increased by 4% over the period."
+  },
+  {
+    q: "Explain how a depreciation of the Canadian dollar can affect Canadian consumers and exporters.",
+    a: "Consumers may pay more for imported products because foreign currency becomes more expensive. Canadian exporters may benefit because their products become relatively cheaper for foreign buyers."
+  },
+  {
+    q: "Canada experiences falling GDP and rising unemployment. Explain what this could indicate about the economy.",
+    a: "It could indicate that the economy is weakening. Businesses may be producing less and hiring fewer workers, or laying people off. If the decline is significant and lasts for an extended period, the economy could be experiencing a recession."
+  },
+  {
+    q: "Why might a decrease in the inflation rate not mean that Canadians are paying less for goods and services?",
+    a: "A decrease in the inflation rate means prices are increasing more slowly, not necessarily falling. For example, inflation could drop from 6% to 2%, but prices are still increasing by 2%."
+  }
+];
+
+function renderShortQuestions() {
+  document.getElementById("shortQuestions").innerHTML =
+    shortQuestions.map((item, index) => `
+      <div class="short-card">
+        <h3>Question ${index + 1}</h3>
+        <p>${item.q}</p>
+        <button class="action" onclick="toggleAnswer(${index})">
+          Show Suggested Answer
+        </button>
+        <div class="answer" id="short-answer-${index}">
+          <strong>Suggested answer:</strong>
+          <p>${item.a}</p>
+        </div>
+      </div>
+    `).join("");
+}
+
+function toggleAnswer(index) {
+  const answer = document.getElementById("short-answer-" + index);
+  const button = answer.previousElementSibling;
+
+  answer.classList.toggle("show");
+
+  button.textContent = answer.classList.contains("show")
+    ? "Hide Suggested Answer"
+    : "Show Suggested Answer";
+}
+
+
+// START THE PAGE
+
+renderQuiz();
+renderShortQuestions();
+
+</script>
+
+</body>
+</html>
